@@ -1,0 +1,6 @@
+#Calculating area of a rectangle 
+Num1 = int(input("Enter width:")
+Num2 = int(input("Enter lenght:")
+Result = Num1 * Num2
+print = (f"Area of the rectangle is {result}")
+
