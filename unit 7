@@ -1,0 +1,17 @@
+import random
+secret_num = random.randint(1,10)
+chances = 0
+maxchances = 3
+gameover = False
+
+while not gameover:
+  guess = int(input("Guess the number between 1 and 10 :"))
+  chances +=1
+  if guess == secret_num:
+        print ("you win")
+        gameover = True
+  else: 
+        print("No! wrong")
+        if chances >= maxchances:
+            print(f" you lose \n The number was {secret_num}")
+            gameover = True
