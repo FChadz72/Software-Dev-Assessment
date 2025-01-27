@@ -1,0 +1,49 @@
+'''
+1)create a greating
+2)create your word list
+3)randomly choose a word from the list you have created
+4)ask the user to guess a letter 
+5)bonus make the program take the input from the user and make it lowercase
+6)check if the letter is in the word'''
+
+# imports the random library 
+import random
+
+
+#greeting & words in game list
+print("Hi welcome to hangman")
+words = ["party", "crazy", "plane", "boat", "plastic"]
+ 
+#selects word from list randomly and asks user for a letter
+secret_word = random.choice(words)
+print("you get 5 guesses")
+display_word =[]
+for letter in secret_word:
+    display_word += "_"
+print(display_word)
+
+#intialising the number of guesses to zero
+num = 0
+game_over = False
+
+'''code checks if guessed letter is in the random word and informs user by displaying '_' or the letters position in the random
+word. The game only allows for 5 guesses and for each incorrect guess it counts down until 0 guesses were the the user loses.
+if the word is guessed correctly before the guesses left reaches zero then you win the game.'''
+while not game_over:
+    guess = input("guess letter ").lower()
+    for position in range(len(secret_word)):
+        letter = secret_word[position]
+        if letter == guess:
+            display_word[position] = letter
+    if guess not in secret_word:
+        num +=1
+        guesses_left = 5 - num
+        print(f"you have guesses left{guesses_left}")
+        if num >=5:
+            print("You lose")
+            game_over = True 
+    print(display_word)
+
+    if "_" not in display_word:
+      print("You win")
+      game_over = True
